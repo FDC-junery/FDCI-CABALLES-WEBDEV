@@ -1,0 +1,14 @@
+.navbar {
+	font-family: Verdana;
+	padding-left: 10px;
+	border-radius: 5px 5px 5px 5px;
+	vertical-align: center;
+}
+
+body {
+	font-family: Verdana;
+}
+
+.textdisplay {
+	vertical-align: top;
+}
