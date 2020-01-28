@@ -12,3 +12,8 @@ body {
 .textdisplay {
 	vertical-align: top;
 }
+
+.companyaddress{
+	font-size: 12px;
+	vertical-align: top;
+}
