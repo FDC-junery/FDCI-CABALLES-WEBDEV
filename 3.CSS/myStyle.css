@@ -13,9 +13,11 @@ ul > .menuitem.selected{
 	background-color: green;
 	list-style-type: none;
 	border-radius: 5px;
-	padding: 5px;
-	margin-top: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	width: 100%;
+	height: 10%;
 	border: 1px solid black;
 }
 
@@ -23,9 +25,12 @@ ul > .menuitem {
 	background-color: lightgrey;
 	list-style-type: none;
 	border-radius: 5px;
-	padding: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	margin-top: 5px;
 	width: 100%;
+	height: 100%;
 	border: 1px solid black;
 }
 
@@ -38,6 +43,7 @@ ul > .menuitem {
 .wrapper {
 	position: relative;
 	width: 100%;
+	height: 100%;
 }
 
 #menubar {
@@ -47,7 +53,7 @@ ul > .menuitem {
 
 div > #main {
 	position: relative;
-	width: 70%;
+	width: 60%;
 	margin-left: 30%;
 	text-align: justify-all;
 }
@@ -85,18 +91,22 @@ a:link {
 }
 
 a#greenbutton {
+	display: inline;
 	background-color: green;
 }
 
 a#orangebutton {
+	display: inline;
 	background-color: orange;
 }
 
 a#bluebutton {
+	display: inline;
 	background-color: blue;
 }
 
 a#redbutton {
+	display: inline;
 	background-color: red;
 }
 
