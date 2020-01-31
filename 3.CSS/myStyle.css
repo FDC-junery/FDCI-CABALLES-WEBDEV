@@ -91,22 +91,22 @@ a:link {
 }
 
 a#greenbutton {
-	display: inline;
+	display: inline-block;
 	background-color: green;
 }
 
 a#orangebutton {
-	display: inline;
+	display: inline-block;
 	background-color: orange;
 }
 
 a#bluebutton {
-	display: inline;
+	display: inline-block;
 	background-color: blue;
 }
 
 a#redbutton {
-	display: inline;
+	display: inline-block;
 	background-color: red;
 }
 
