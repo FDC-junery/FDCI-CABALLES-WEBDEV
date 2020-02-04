@@ -47,11 +47,26 @@ footer {
 	margin-top: 50px;
 }
 
+div#interests {
+	width: 80%;
+	margin: 0 auto;
+}
+
 div#interests img {
 	position: inline-block;
 	width: 90%;
 	height: 50%;
 	padding: 10px
+}
+
+div#gallery {
+	width: 80%;
+	margin: 0 auto;
+}
+
+div#contact {
+	width: 80%;
+	margin: 0 auto;
 }
 
 div#interests img:hover + p.description {
@@ -82,4 +97,10 @@ p.description {
 input#submitmessage {
 	position: relative;
 	float: right;
+}
+
+footer {
+	width: 100%;
+	margin-top: : 10px;
+	text-align: center;
 }
