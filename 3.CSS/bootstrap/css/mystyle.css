@@ -1,13 +1,43 @@
+section#navigationbar {
+	display: block;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
 div.maincontainer {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 
+section#sidenavsection {
+	width: 100%;
+	font-family: Verdana;
+	position: sticky;
+	top: 0;
+}
+
+div#sidenavbar {
+	float: left;
+	position: fixed;
+	width: 10%;
+}
+
+#sidenavbar li {
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	margin-top: 5px;
+	list-style: none;
+	background-color: lightgrey;
+	padding-inline-start: 0px;
+	text-indent: 5px;
+}
+
 #myCarousel {
 	width: 80%;
 	height: 70%;
-	margin: 0 auto;
+	margin-left: 15%;
 }
 
 #carouselinner {
@@ -24,7 +54,7 @@ div#carouselinner img {
 
 nav#headerlinks {
 	position: relative;
-	width: 80%;
+	width: 100%;
 	top: 5px;
 	margin: 0 auto;
 }
@@ -32,8 +62,63 @@ nav#headerlinks {
 section#aboutme {
 	width: 80%;
 	top: 10px;
-	margin: 0 auto;
+	margin-left: 15%;
 	position: relative;
+}
+
+section#aboutme p {
+	text-indent: 50px;
+}
+
+section#feedbacks {
+	font-family: Verdana;
+	width: 80%;
+	top: 10px;
+	margin-left: 15%;
+	position: relative;
+	padding: 10px;
+	text-align: justify;
+	border-radius: 5px;
+	position: relative;
+}
+
+#jumbotronfeedback {
+	text-indent: 50px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+table#feedbackstable {
+	height: 50%;
+	overflow: scroll;
+	position: relative;
+}
+
+section#feedbacks table td {
+	text-indent: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+section#feedbacks table td{
+	text-indent: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+section#feedbacks table td#fbleft {
+	background-color: #2F4F4F;
+	border-radius: 10px;
+}
+
+section#feedbacks table td#fbleft:hover {
+	background-color: #2F4F4F;
+	border-radius: 10px;
+}
+
+section#feedbacks table td#fbright {
+	background-color: #5F9EA0;
+	border-radius: 10px;
 }
 
 div.container_gallery > img {
@@ -49,33 +134,39 @@ footer {
 
 div#interests {
 	width: 80%;
-	margin: 0 auto;
+	margin-left: 15%;
+	position: relative;
 }
 
 div#interests img {
 	position: inline-block;
-	width: 90%;
-	height: 50%;
-	padding: 10px
+	width: 80%;
+	height: 40%;
+	padding: 10px;
+	transition: width 1s;
 }
 
 div#gallery {
 	width: 80%;
-	margin: 0 auto;
+	margin-left: 15%;
 }
 
 div#contact {
 	width: 80%;
-	margin: 0 auto;
+	margin-left: 15%;
 }
 
-div#interests img:hover + p.description {
+div#interests img:hover {
+	width: 100%;
+}
+
+/*div#interests img:hover + p.description {
 	visibility: relative;
 	opacity: 0.70;	
 	border-color: lightblue;
 	visibility: visible;
 }
-
+*/
 p.description {
 	position: inline-block;
 	width: 95%;
