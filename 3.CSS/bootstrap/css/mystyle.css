@@ -1,7 +1,9 @@
-section#navigationbar {
-	display: block;
-	width: 100%;
-	padding-bottom: 10px;
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #EEECEC;
 }
 
 div.maincontainer {
@@ -10,34 +12,12 @@ div.maincontainer {
 	height: 100%;
 }
 
-section#sidenavsection {
-	width: 100%;
-	font-family: Verdana;
-	position: sticky;
-	top: 0;
-}
-
-div#sidenavbar {
-	float: left;
-	position: fixed;
-	width: 10%;
-}
-
-#sidenavbar li {
-	padding: 10px;
-	width: 100%;
-	border-radius: 5px;
-	margin-top: 5px;
-	list-style: none;
-	background-color: lightgrey;
-	padding-inline-start: 0px;
-	text-indent: 5px;
-}
-
 #myCarousel {
 	width: 80%;
 	height: 70%;
 	margin-left: 15%;
+	position: relative;
+	top: 10px;
 }
 
 #carouselinner {
@@ -50,13 +30,6 @@ div#carouselinner img {
 	width: 100%; 
 	margin: 0 auto;
 	display: block;
-}
-
-nav#headerlinks {
-	position: relative;
-	width: 100%;
-	top: 5px;
-	margin: 0 auto;
 }
 
 section#aboutme {
