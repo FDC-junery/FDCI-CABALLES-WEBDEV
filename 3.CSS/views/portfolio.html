@@ -97,6 +97,10 @@
 								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
+							<div>
+								<button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"> Good</span></button>
+								<button class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"> Mean</span></button>
+							</div>
 						</div>
 					</div>
 
@@ -111,6 +115,10 @@
 								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
+							<div>
+								<button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"> Good</span></button>
+								<button class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"> Mean</span></button>
+							</div>
 						</div>
 					</div>
 
@@ -125,6 +133,10 @@
 								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
+							<div>
+								<button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"> Good</span></button>
+								<button class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"> Mean</span></button>
+							</div>
 						</div>
 					</div>
 					<div class="item">
@@ -138,26 +150,66 @@
 								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
+							<div>
+								<button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"> Good</span></button>
+								<button class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down"> Mean</span></button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			 Share your thoughts
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Your thougts about me is highly appreciated!</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <form>
+			        	<div class="form-group">
+			        		<label>Name:</label>
+			        		<input type="text" name="name" class="form-control" aria-describedby="emailHelp" placeholder="Juan dela Cruz">
+			        		<small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+			        	</div>
+			        	<div class="form-group">
+							<label>Message:</label><br>
+							<textarea class="form-control" rows="10" placeholder="Enter your message..."></textarea><br>
+						</div>
+			        </form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
 		</section>
 
-		<div class="container-fluid" id="interests">
+		<div class="container" id="interests">
 			<h1 align="center">- Interests -</h1>
 			<div class="row-no-gutters" align="center">
 				<div class="col-sm-4">
-					<img src="../images/junery.png" alt="Koala" class="img-rounded">
-					<p class="description" >This is my first image</p>
+					<img src="../images/coffee.jpg" alt="Coffee" class="img-rounded">
+					<p class="w3-container w3-center w3-animate-bottom" id="description">I'm a coffee lover</p>
 				</div>
 				<div class="col-sm-4">
-					<img src="../images/junery.png" alt="Koala" class="img-rounded">
-					<p class="description">This is my second image</p>
+					<img src="../images/music.jpg" alt="Music" class="img-rounded">
+					<p class="w3-container w3-center w3-animate-bottom" id="description">I love listening to the music</p>
 				</div>
 				<div class="col-sm-4">
-					<img src="../images/junery.png" alt="Koala" class="img-rounded">
-					<p class="description">This is my first image</p>
+					<img src="../images/beach.jpg" alt="Beach" class="img-rounded">
+					<p class="w3-container w3-center w3-animate-bottom" id="description">I love beaches</p>
 				</div>
 			</div>
 
@@ -238,8 +290,5 @@
 
 	<script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-	<script>
-		
-	</script>>
 </body>
 </html>

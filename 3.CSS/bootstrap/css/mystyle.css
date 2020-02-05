@@ -112,11 +112,26 @@ div#interests {
 }
 
 div#interests img {
-	position: inline-block;
+	position: static;
 	width: 80%;
 	height: 40%;
-	padding: 10px;
 	transition: width 1s;
+}
+
+div#interests img:hover {
+	opacity: 0.5;
+}
+
+div#interests img:hover + p {
+	visibility: visible;
+}
+
+p#description {
+	font-family: Verdana;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	visibility: hidden;
 }
 
 div#gallery {
@@ -127,35 +142,6 @@ div#gallery {
 div#contact {
 	width: 80%;
 	margin-left: 15%;
-}
-
-div#interests img:hover {
-	width: 100%;
-}
-
-/*div#interests img:hover + p.description {
-	visibility: relative;
-	opacity: 0.70;	
-	border-color: lightblue;
-	visibility: visible;
-}
-*/
-p.description {
-	position: inline-block;
-	width: 95%;
-	padding: 10px;
-	top: 10px;
-	bottom: 5px;
-	right: 5px;
-	left: 5px;
-	border-radius: 3px;
-	background-color: #ffffcc;
-	color: black;
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: all 400ms ease-out;
-	-moz-transition: all 400ms ease-out;
-	text-align:center;
 }
 
 input#submitmessage {
