@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background-color: #001f3f;
+	background-color: #001226;
 	opacity: 0.8;
 }
 
@@ -179,7 +179,7 @@ div#interests img:hover + p {
 
 @keyframes desc_animate {
 	from {top: 70;}
-	to {top: 10px; background-color: #838383; }
+	to {top: 10px; color: #000;; background-color: #838383; }
 	0%
 }
 
