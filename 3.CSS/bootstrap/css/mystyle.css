@@ -14,8 +14,8 @@ div.maincontainer {
 
 #myCarousel {
 	width: 80%;
-	height: 70%;
-	margin-left: 15%;
+	height: 80%;
+	margin: 0 auto;
 	position: relative;
 	top: 10px;
 }
@@ -28,14 +28,14 @@ div.maincontainer {
 
 div#carouselinner img {
 	width: 100%; 
+	height: 80%
 	margin: 0 auto;
-	display: block;
 }
 
 section#aboutme {
 	width: 80%;
 	top: 10px;
-	margin-left: 15%;
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -47,7 +47,7 @@ section#feedbacks {
 	font-family: Verdana;
 	width: 80%;
 	top: 10px;
-	margin-left: 15%;
+	margin: 0 auto;
 	position: relative;
 	padding: 10px;
 	text-align: justify;
@@ -107,7 +107,7 @@ footer {
 
 div#interests {
 	width: 80%;
-	margin-left: 15%;
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -119,11 +119,29 @@ div#interests img {
 }
 
 div#interests img:hover {
-	opacity: 0.5;
+	animation: img_opac_fadein 0.5s;
+	animation-direction: alternate;
+}
+
+@keyframes img_opac_fadein {
+	50% {opacity: 1;}
+	50% {opacity: 0.5;}
 }
 
 div#interests img:hover + p {
 	visibility: visible;
+	animation: desc_animate 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+	animation-delay: 0.1s;
+}
+
+@keyframes desc_animate {
+	from {top: 70;}
+	to {top: 10px; background-color: #838383; }
+	0%
 }
 
 p#description {
@@ -132,16 +150,21 @@ p#description {
 	margin: 0 auto;
 	position: relative;
 	visibility: hidden;
+	width: 80%;
+	top: 5px;
+	background-color: lightgrey;
+	padding: 5px;
+	border-radius: 2px;
 }
 
 div#gallery {
 	width: 80%;
-	margin-left: 15%;
+	margin: 0 auto;
 }
 
 div#contact {
 	width: 80%;
-	margin-left: 15%;
+	margin: 0 auto;
 }
 
 input#submitmessage {
