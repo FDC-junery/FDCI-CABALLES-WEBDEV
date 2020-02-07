@@ -3,7 +3,8 @@ html {
 }
 
 body {
-	background-color: #EEECEC;
+	background-color: #001f3f;
+	opacity: 0.8;
 }
 
 div.maincontainer {
@@ -34,7 +35,7 @@ div#carouselinner img {
 
 section#aboutme {
 	width: 80%;
-	top: 10px;
+	top: 20px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -46,6 +47,7 @@ section#aboutme p {
 section#feedbacks {
 	font-family: Verdana;
 	width: 80%;
+	height: 600px;
 	top: 10px;
 	margin: 0 auto;
 	position: relative;
@@ -53,6 +55,24 @@ section#feedbacks {
 	text-align: justify;
 	border-radius: 5px;
 	position: relative;
+}
+
+
+
+#label{
+	background-color: #0074D9;
+	width: 50%;
+	height: 50px;
+	border-radius: 2px;
+	text-align: center;
+	margin: 0 auto;
+	color: white;
+	position: relative;
+	padding-bottom: 10px;
+}
+
+#myCarouselfb {
+	margin-top: 10px;
 }
 
 #jumbotronfeedback {
@@ -94,11 +114,24 @@ section#feedbacks table td#fbright {
 	border-radius: 10px;
 }
 
-div.container_gallery > img {
-	padding: 5px; 
-	width: 30%;
-	width: 30%;
+#sharethoughtbtn {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+div#galleries_imgs {
+	margin-top: 10px;
+}
+
+div#galleries_imgs img {
+	width: 300px;
+	height: 200px;
 	position: relative;
+	margin: 0 auto;
+}
+
+div#galleries_imgs img:hover {
+	opacity: 0.5;
 }
 
 footer {
@@ -107,8 +140,14 @@ footer {
 
 div#interests {
 	width: 80%;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
+	color: white;
+}
+
+div#interests > #interestinner {
+	margin-top: 10px;
 }
 
 div#interests img {
@@ -144,6 +183,10 @@ div#interests img:hover + p {
 	0%
 }
 
+#interestinnner {
+	margin-top: 10px;
+}
+
 p#description {
 	font-family: Verdana;
 	text-align: center;
@@ -159,17 +202,38 @@ p#description {
 
 div#gallery {
 	width: 80%;
+	height: 550px;
 	margin: 0 auto;
 }
 
 div#contact {
 	width: 80%;
-	margin: 0 auto;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	position: relative;
+
+}
+
+div#contact img {
+	width: 450px;
+	height: 350px;
+	margin-left: 100px;
+}
+
+div#contact #contactinner { 
+	margin-top: 10px;
+	position: relative;
 }
 
 input#submitmessage {
 	position: relative;
 	float: right;
+}
+
+form {
+	color: white;
 }
 
 footer {

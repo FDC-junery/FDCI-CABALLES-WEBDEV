@@ -83,7 +83,9 @@
 
 
 		<section id="feedbacks" align="center">
-			<h1 align="center">- Feedbacks -</h1>
+			<div id="label" >
+				<h1>Feedbacks</h1>
+			</div>
 			<div id="myCarouselfb" class="carousel slide carousel-fa" data-ride="carousel">
 				<div class="carousel-inner" id="carouselinnerfb">
 					<div class="item active">
@@ -159,7 +161,7 @@
 				</div>
 			</div>
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			<button type="button" class="btn btn-primary" id="sharethoughtbtn" data-toggle="modal" data-target="#exampleModal">
 			 Share your thoughts
 			</button>
 
@@ -197,8 +199,10 @@
 		</section>
 
 		<div class="container" id="interests">
-			<h1 align="center">- Interests -</h1>
-			<div class="row-no-gutters" align="center">
+			<div id="label" >
+				<h1>Interests</h1>
+			</div>
+			<div class="row-no-gutters" align="center" id="interestinnner">
 				<div class="col-sm-4">
 					<img src="../images/knowledge.jpg" alt="knowledge" class="img-rounded">
 					<p class="w3-container w3-center w3-animate-bottom" id="description">Knowledge</p>
@@ -217,55 +221,40 @@
 
 		
 		<div class="container-fluid" id="gallery">
-			<h1 align="center">- Gallery -</h1>
+			<div id="label" >
+				<h1>Gallery</h1>
+			</div>
 			<div class="row" id="galleries_imgs" align="center">
-				<div class="col-sm-2" id="galimg1">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail" id="galimg1_1">
+				<div class="col-sm-4">
+					<img src="../images/gal4.jpg" alt="kalanggaman" class="img-fluid img-thumbnail">
 				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+				<div class="col-sm-4">
+					<img src="../images/gal1.jpeg" alt="gallery_one" class="img-fluid img-thumbnail">
 				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+				<div class="col-sm-4">
+					<img src="../images/gal3.jpg" alt="Koala" class="img-fluid img-thumbnail">
 				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+				<div class="col-sm-4">
+					<img src="../images/gal5.jpg" alt="Koala" class="img-fluid img-thumbnail">
 				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+				<div class="col-sm-4">
+					<img src="../images/gal6.jpeg" alt="Koala" class="img-fluid img-thumbnail">
 				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
-				</div>
-				<div class="col-sm-2">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+				<div class="col-sm-4">
+					<img src="../images/koala.jpg" alt="Koala" class="img-fluid img-thumbnail">
 				</div>
 			</div>
 		</div>
-
 		<div id="contact">
-			<h1 align="center">- Contact Me -</h1>
-			<div class="row">
+			<div id="label" >
+				<h1>Contact Me</h1>
+			</div>
+			<div class="row" id="contactinner">
 				<div class="col-sm-6">
-					<img src="../images/junery.png" alt="Koala" class="img-fluid img-thumbnail">
+					<img src="../images/gal7.jpg" alt="profile" class="img-fluid img-thumbnail">
 				</div>
 				<div class="col-sm-6">
-					<form style="max-height: 100%;">
+					<form>
 						<div class="form-group">
 							<label>Your Complete Name</label><br>
 							<input type="text" class="form-control"placeholder="Juan dela Cruz" required><br>
@@ -273,7 +262,7 @@
 						
 						<div class="form-group">
 							<label>Message:</label><br>
-							<textarea class="form-control" rows="10" placeholder="Enter your message..."></textarea><br>
+							<textarea class="form-control" rows="8" placeholder="Enter your message..."></textarea><br>
 						</div>
 						
 						<input type="submit" class="btn btn-primary" id="submitmessage" name="submit" value="Send Message" >
