@@ -29,7 +29,7 @@ div.maincontainer {
 
 div#carouselinner img {
 	width: 100%; 
-	height: 80%
+	height: 100%
 	margin: 0 auto;
 }
 
@@ -121,6 +121,25 @@ section#feedbacks table td#fbright {
 
 div#galleries_imgs {
 	margin-top: 10px;
+	align-content: center;
+}
+
+div#galleries_imgs p {
+	opacity:0;
+	font-size: 40px;
+	position:absolute;
+	top:0;
+	margin: 0 auto;
+	color:#1c87c9;
+	background-color:rgba(200,200,200,0.5);
+	width:290px;
+	height:300px;
+	-webkit-transition: all 400ms ease-out;
+	-moz-transition: all 400ms ease-out;
+	-o-transition: all 400ms ease-out;
+	-ms-transition: all 400ms ease-out;
+	transition: all 400ms ease-out;
+	text-align:center;
 }
 
 div#galleries_imgs img {
@@ -132,6 +151,56 @@ div#galleries_imgs img {
 
 div#galleries_imgs img:hover {
 	opacity: 0.5;
+}
+
+#images {
+    cursor: pointer;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#images .fadedbox {
+	background-color: #666666;
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	margin-left: 100;
+	color: #fff;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	opacity: 0;
+	width: 270px;
+	height: 200px;
+}
+#images:hover .fadedbox { opacity: 0.8; }
+#images .text {
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	transform: translateY(30px);
+	-webkit-transform: translateY(30px);
+}
+
+#images .title {
+	text-transform: uppercase;
+	opacity: 0;
+	transition-delay: 0.2s;
+	transition-duration: 0.3s;
+}
+#images:hover .title,
+#images:focus .title {
+	opacity: 1;
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
 
 footer {
@@ -202,8 +271,9 @@ p#description {
 
 div#gallery {
 	width: 80%;
-	height: 550px;
+	height: 100%;
 	margin: 0 auto;
+	align-content: center;
 }
 
 div#contact {
