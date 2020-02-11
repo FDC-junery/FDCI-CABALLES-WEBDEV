@@ -12,6 +12,21 @@ function getSumOddNumbers() {
    	document.getElementById('displaySumOddNum').innerHTML = "Result: " + sum;
 }
 
+function clearPartOne() {
+	document.getElementById('from').value = "";
+	document.getElementById('to').value = "";
+}
+
+initialDisplayGrade();
+
+function initialDisplayGrade() {
+	document.getElementById('pe_subj').value = 100;
+	document.getElementById('math_subj').value = 99;
+	document.getElementById('science_subj').value = 98;
+	document.getElementById('english_subj').value = 80;
+	document.getElementById('filipino_subj').value = 70;
+}
+
 function editGrade() {
 	document.getElementById('pe_subj').disabled = false;
 	document.getElementById('math_subj').disabled = false;
@@ -71,7 +86,7 @@ function calcAverage() {
 
 function displayBeepBoop() {
 	var msg = "";
-	if(beepbeepButtonCheck("displaybeepboopbtn", "Display Beep Boop (0 - 100)")) {
+	if(buttonTextValidation("displaybeepboopbtn", "Display Beep Boop (0 - 100)")) {
 		document.getElementById('displaybeepboop').style.display = "block";
 		document.getElementById('displaybeepboop').innerHTML = "";
 		for(var i = 0; i<=100; i++) {
@@ -93,15 +108,21 @@ function displayBeepBoop() {
 }
 
 function changeButtonText(id, value) {
-	console.log(id);
-	console.log(value);
-	document.getElementById(id).innerHTML = value;
+	var element = document.getElementById(id);
+	if(value == "Hide") {
+		element.setAttribute("class", "btn btn-info");
+	} else if (value == "Hide me"){
+		element.setAttribute("class", "btn btn-default");
+	} else {
+		element.setAttribute("class", "btn btn-primary");
+	}
+	
+	element.innerHTML = value;
 }
 
-function beepbeepButtonCheck(id, value) {
+function buttonTextValidation(id, value) {
 	var text = document.getElementById(id).innerHTML;
 	var retBoolean = true;
-	console.log("Text: " + text);
 
 	if(text == value) {
 		return true;
@@ -109,18 +130,24 @@ function beepbeepButtonCheck(id, value) {
 	return false;
 }
 
-displayTriangle();
-
 function displayTriangle() {
 	var displayMessage = "";
 	var msg = "";
-	for(var i = 1; i <= 5; i++) {
-    	for(var j = 1; j <=i; j++) {
-        	msg += "* ";
-        }
-        displayMessage += msg+"<br>";
-        msg = "";
-    }
-    document.getElementById('displayTriangle').innerHTML += displayMessage;
+	if(buttonTextValidation("displayTriangbleBtn", "Click me!")) {
+		document.getElementById('displayTriangle').style.display = "block";
+		for(var i = 1; i <= 5; i++) {
+	    	for(var j = 1; j <=i; j++) {
+	        	msg += "* ";
+	        }
+	        displayMessage += msg+"<br>";
+	        msg = "";
+	    }
+	    document.getElementById('displayTriangle').innerHTML = displayMessage;
+	    changeButtonText("displayTriangbleBtn", "Hide me");
+	} else {
+		changeButtonText("displayTriangbleBtn", "Click me!");
+		document.getElementById('displayTriangle').style.display = "none";
+	}
+    
 }
 
