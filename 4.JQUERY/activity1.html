@@ -31,16 +31,16 @@
 
 		<label>Filipino: </label>
 		<input type="number" id="filipino_subj" name="filipinosubj" required disabled="true" /><br>
-		<button id="editgrades" onclick="editGrade()">Edit</button><br>
+		<button id="editgrades" onclick="editGrade()">New Grades</button><br>
 		<button id="savegrades" onclick="savegrades()"  style="display: none;">Save</button>
-		<button id="getaverage" onclick="calcAverage()">Get Averange</button>
+		<button id="getaverage" onclick="calcAverage()" style="display: none;">Get Averange</button>
 
 		<p id="displayAverage" style="display: none;"></p>
 	</div>
 
 	<div id="beepboop">
 		<h3>Part 3</h3>
-		<button onclick="displayBeepBoop()">Display Beep Boop (0 - 100)</button>
+		<button id="displaybeepboopbtn" onclick="displayBeepBoop(false)">Display Beep Boop (0 - 100)</button>
 		<p id="displaybeepboop"></p>
 	</div>
 
