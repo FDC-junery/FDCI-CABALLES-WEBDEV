@@ -1,3 +1,13 @@
+initPartOne();
+
+function initPartOne() {
+	var from = document.getElementById('from');
+	var to = document.getElementById('to');
+
+	from.value = 0;
+	to.value = 50;
+}
+
 function getSumOddNumbers() {
 	var from = parseInt(document.getElementById('from').value);
 	var to = parseInt(document.getElementById('to').value);
@@ -12,9 +22,26 @@ function getSumOddNumbers() {
    	document.getElementById('displaySumOddNum').innerHTML = "Result: " + sum;
 }
 
+clearButtonChangeBehavior();
+
+function clearButtonChangeBehavior() {
+	var clearButton = document.getElementById('clear_part_one');
+	var from = document.getElementById('from');
+	var to = document.getElementById('to');
+
+	if(from != "" && to != "") {
+		clearButton.disabled = false;
+	}
+}
+
 function clearPartOne() {
-	document.getElementById('from').value = "";
-	document.getElementById('to').value = "";
+	var clearButton = document.getElementById('clear_part_one');
+	var from = document.getElementById('from');
+	var to = document.getElementById('to');
+	from.value = "";
+	to.value = "";
+	console.log("From" + from);
+	clearButton.disabled = true;
 }
 
 initialDisplayGrade();

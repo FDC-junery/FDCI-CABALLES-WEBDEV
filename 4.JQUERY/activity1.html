@@ -11,15 +11,15 @@
 		<table class="table" style="width: 20%;">
 			<tr>
 				<td><label>From: </label></td>
-				<td><input type="number" class="form-control" id="from" name="from" /></td>
+				<td><input type="number" class="form-control" onkeyup="clearButtonChangeBehavior()" id="from" name="from" /></td>
 			</tr>
 			<tr>
 				<td><label>To: </label></td>
-				<td><input type="number" class="form-control" id="to" name=""></td>
+				<td><input type="number" class="form-control" onkeyup="clearButtonChangeBehavior()" id="to" name=""></td>
 			</tr>
 			<tr>
 				<td>
-					<button class="btn btn-danger" onclick="clearPartOne()">Clear</button>
+					<button class="btn btn-danger" id="clear_part_one" onclick="clearPartOne()">Clear</button>
 				</td>
 				<td>
 					<button class="btn btn-primary" onclick="getSumOddNumbers()">Get Sum</button>
