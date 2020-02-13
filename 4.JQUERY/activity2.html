@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript | Activity 2</title>
+	<link rel="stylesheet" type="text/css" href="../3.CSS/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	
+	<div class="container-fluid" align="center">
+		<table class="table" style="width: 40%;">
+			<tr>
+				<td colspan="2" style="text-align: left;">1st Number: </td>		
+				<td colspan="2"><input type="number" class="form-control" name="firstNum" id="firstNumber" required="required" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">2nd Number: </td>	
+				<td colspan="2"><input type="number" class="form-control" name="secondNum" id="secondNumber" required="required" /></td>
+			</tr>
+			<tr align="center">
+				<td>
+					<button class="btn btn-primary" onclick="calculate('product')">Multiply</button>
+				</td>
+				<td>
+					<button class="btn btn-primary" onclick="calculate('quotient')">Divide</button>
+				</td>
+				<td>
+					<button class="btn btn-primary" onclick="calculate('sum')">Add</button>
+				</td>
+				<td>
+					<button class="btn btn-primary" onclick="calculate('difference')">Subtract</button>
+				</td>
+			</tr>
+		</table>
+		<p id="result">Result will be displayed here.</p>
+	</div>
+	<script type="text/javascript">
+		function calculate(operator) {
+	var firstNum = document.getElementById("firstNumber").value;
+	var secondNum = document.getElementById("secondNumber").value;
+	var firstNumInt = 0;
+	var secondNumInt = 0;
+	var result = 0;
+	var operatorSign = "";
+
+	if(operator == "") {
+		alert("Incorrect Operator");
+		return;
+	}
+
+	if(firstNum == "") {
+		alert("First Number is blank");
+		return;
+	}
+
+	if(secondNum == "") {
+		alert("Second Number is blank");
+		return;
+	}
+
+	firstNumInt = parseInt(firstNum);
+	secondNumInt = parseInt(secondNum);
+
+	switch(operator) {
+		case "product":
+			result = firstNumInt * secondNumInt;
+			operatorSign = "*";
+			break;
+		case "quotient": 
+			result = firstNumInt / secondNumInt;
+			operatorSign = "/";
+			break;
+		case "sum":
+			result = firstNumInt + secondNumInt;
+			operatorSign = "+";
+			break;
+		case "difference":
+			result = firstNumInt - secondNumInt;
+			operatorSign = "-";
+			break;
+	}
+
+	document.getElementById("result").innerHTML = firstNumInt + " " + operatorSign + " " + secondNumInt + " = " +result
+
+}
+	</script>
+</body>
+</html>

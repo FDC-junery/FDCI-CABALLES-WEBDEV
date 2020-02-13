@@ -22,8 +22,6 @@ function getSumOddNumbers() {
    	document.getElementById('displaySumOddNum').innerHTML = "Result: " + sum;
 }
 
-clearButtonChangeBehavior();
-
 function clearButtonChangeBehavior() {
 	var clearButton = document.getElementById('clear_part_one');
 	var from = document.getElementById('from');
