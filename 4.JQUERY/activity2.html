@@ -105,24 +105,21 @@
 		}
 
 		//Part 3: Hour to Minutes converter
-		function calculate(form) {
-			var hour = document.getElementById("firstNumber").value;
+		function calculate(num) {
 			var hourInt = 0;
 			var resultHrToMin = 0;
 			var displayPara = document.getElementById("convertedResult");
 
-			if(hour == "") {
+			if(num == "") {
 				alert("Please input hours on the field.");
 				return;
 			}
 
-			hourInt = parseInt(hour);
+			hourInt = parseInt(num);
 			resultHrToMin = hourInt * 60;
 
 			displayPara.innerHTML = resultHrToMin;
 		}
-
-		
 	</script>
 </body>
 </html>
