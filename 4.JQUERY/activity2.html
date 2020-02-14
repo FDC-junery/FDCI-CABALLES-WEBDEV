@@ -33,14 +33,14 @@
 		<div class="container">
 			<h1>Part 3</h1>
 			<label>Input hour to convert.</label>
-			<form onsubmit="calcuateHourToMinute(); return false">
+			<form name="hourForm">
 				<table class="table" style="width: 40%;">
 					<tr>
 						<td style="text-align: center;">Hour: </td>		
 						<td>
 							<input type="number" class="form-control" name="hour" id="firstNumber" />
 						</td>
-						<td><input type="submit" class="btn btn-primary" value="Calculate"></td>		
+						<td><input type="submit" class="btn btn-primary" onclick="calculate(hourForm.hour.value); return false" value="Calculate"></td>		
 					</tr>
 				</table>
 			</form>
@@ -105,9 +105,8 @@
 		}
 
 		//Part 3: Hour to Minutes converter
-		function calcuateHourToMinute() {
+		function calculate(form) {
 			var hour = document.getElementById("firstNumber").value;
-			console.log(hour);
 			var hourInt = 0;
 			var resultHrToMin = 0;
 			var displayPara = document.getElementById("convertedResult");
