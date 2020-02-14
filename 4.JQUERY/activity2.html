@@ -20,7 +20,7 @@
 			<table>
 				<tr>
 					<td>
-					<input type="number" class="form-control" id="number" style="width: 90%;">
+					<input type="number" class="form-control" id="number" min="1" style="width: 90%;">
 					</td>
 					<td>
 					<button class="btn btn-primary" id="getPrimeButton">IsPrime?</button>
@@ -61,6 +61,7 @@
 			var longest = "";
 			var longestLen = 0;
 			var displayResult = document.getElementById("textResult");
+			var count = 0;
 			if(text == "") {
 				alert("Please input text on the field.");
 				return;
@@ -68,36 +69,57 @@
 	
 			var str;
 			for(str in wordArray) {
-				if(wordArray[str].length >= longestLen) {
+				if(wordArray[str].length > longestLen) {
 					longestLen = wordArray[str].length;
 					longest = wordArray[str];
+				} else if(wordArray[str].length == longestLen) {
+					count++;
+					longestLen = wordArray[str].length;
+					longest = longest + ", " +wordArray[str];
 				}
 			}
 			displayResult.innerHTML = "String is: " + text + "<br>";
-			displayResult.innerHTML += "The longest word: " + longest;
-
+			console.log(longest);
+			if(longest.includes(",") && count > 1) {
+				displayResult.innerHTML += "The longest words: <label style='color: green;'>" + longest + "</label>";
+			} else {
+				displayResult.innerHTML += "The longest word: <label style='color: green;'>" + longest + "</label>";
+			}
+		
 		}
 
 
 		//Part 2: Prime Number Indentifier
 		document.getElementById('getPrimeButton').onclick = function() {
-			var num = document.getElementById('number').value;
-			if(num == "" || num == " ") {
+			var num = document.getElementById('number'); 
+			var numValue = num.value;
+			var numInt = 0;
+			if(numValue == "" || numValue == " ") {
 				alert("Please enter your number.");
 				return;
+			} 
+
+			numInt = parseInt(numValue);
+			if(numInt < 1 ) {
+				alert("Please enter more than 1 number.");
+				num.value = "";
+				return;
 			}
-			isPrimeNumber(num);
+			isPrimeNumber(numValue);
 		}
+
 		function isPrimeNumber(number) {
 			var displayPrime = document.getElementById("primeResultDisplay");
-			var check = true;
+			var checkPrime = true;
+
 			for(var i = 2; i < number; i++) {
 				if(number%i==0) {
-					check = false;
+					checkPrime = false;
 					break;
 				}
 			}
-			if(check) {
+
+			if(checkPrime) {
 				displayPrime.innerHTML = number + " is a prime number";
 			} else {
 				displayPrime.innerHTML = number + " is not a prime number";
@@ -116,10 +138,17 @@
 			}
 
 			hourInt = parseInt(num);
-			resultHrToMin = hourInt * 60;
 
+			if(hourInt < 1) {
+				alert("Please input natural numbers.");
+				document.getElementById("firstNumber").value = "";
+				return;
+			}
+
+			resultHrToMin = hourInt * 60;
 			displayPara.innerHTML = resultHrToMin;
 		}
+
 	</script>
 </body>
 </html>
