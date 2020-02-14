@@ -70,14 +70,20 @@
 			var str;
 
 			for(str in wordArray) {
+				
 				if(wordArray[str].length > longestLen) {
 					longestLen = wordArray[str].length;
 					longest = wordArray[str];
+
 				} else if(wordArray[str].length == longestLen) {
+					if(longest.includes(wordArray[str])) {
+						continue;
+					}
 					count++;
 					longestLen = wordArray[str].length;
 					longest = longest + ", " +wordArray[str];
 				}
+
 			}
 
 			displayResult.innerHTML = "String is: " + text + "<br>";
