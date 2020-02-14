@@ -40,7 +40,7 @@
 						<td>
 							<input type="number" class="form-control" name="hour" id="firstNumber" />
 						</td>
-						<td><input type="submit" class="btn btn-primary" onclick="calculate(hourForm.hour.value); return false" value="Calculate"></td>		
+						<td><input type="submit" class="btn btn-primary" onclick="return calculate(hourForm.hour.value)" value="Calculate"></td>		
 					</tr>
 				</table>
 			</form>
@@ -68,6 +68,7 @@
 			}
 	
 			var str;
+
 			for(str in wordArray) {
 				if(wordArray[str].length > longestLen) {
 					longestLen = wordArray[str].length;
@@ -78,6 +79,7 @@
 					longest = longest + ", " +wordArray[str];
 				}
 			}
+
 			displayResult.innerHTML = "String is: " + text + "<br>";
 			console.log(longest);
 			if(longest.includes(",") && count > 1) {
@@ -147,6 +149,8 @@
 
 			resultHrToMin = hourInt * 60;
 			displayPara.innerHTML = resultHrToMin;
+
+			return false;
 		}
 
 	</script>
