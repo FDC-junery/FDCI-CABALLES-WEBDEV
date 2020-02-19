@@ -2,235 +2,88 @@
 <html>
 <head>
 	<title>QA WebDev | JS Activity 3</title>
+	<link rel="stylesheet" type="text/css" href="../3.CSS/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-	<div>
-		<table>
-			<form name="person">
+	<div class="container" style="width: 80%; border-radius: 3px; border-color: #000; border: px; border-style: groove;">
+		<table class="table" style="width: 50%;" align="center">
+			<form class="form" name="person">
 				<tr>
 					<td><label>Name: </label></td>
-					<td><input type="text" id="name" name="personName"></td>
+					<td><input type="text" class="form-control" id="name" name="personName"></td>
 				</tr>
 				<tr>
 					<td><label>Age: </label></td>
-					<td><input type="number" id="age" name="age" min="1"></td>
+					<td><input type="number" class="form-control" id="age" name="age" min="1"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" id="submit" name="" min="1" required></td>
+					<td colspan="2" align="right"><input type="submit" class="btn btn-primary" id="submit" name="" min="1" required></td>
 				</tr>
 			</form>
+			<tr>
+				<td colspan="2" ><h2>Final Object: </h2></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="border-radius: 10px; border-color: #000; border: 2px; border-style: dotted;"><p id="result" style="color: blue"></p></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><h2>Readable Object: </h2></td>
+			</tr>
+			<tr>	
+				<td colspan="2" style="border-radius: 10px; border-color: #000; border: 2px; border-style: dotted;"><p id="readable" style="color: green"></p></td>
+			</tr>
 		</table>
-
-		<h2>Final Object: </h2>
-		<p id="result"></p>
-
-		<h2>Readable Object: </h2>
-		<p id="readable"></p>
 	</div>
 
-	<div>
-		<h2>Product Inventory</h2>
-		<table>
+	<div class="container" style="width: 80%; border-radius: 3px; border-color: #000; border: px; border-style: groove; margin-top: 10px;">
+		
+		<table class="table" style="width: 50%;" align="center">
 			<form name="product">
 				<tr>
+					<td colspan="2"><h2 align="center">Product Inventory</h2></td>
+				</tr>
+				<tr>
 					<td><label>Name: </label></td>
-					<td><input type="text" id="productName" name="productName"></td>
+					<td><input type="text" class="form-control" id="productName" name="productName"></td>
 				</tr>
 				<tr>
 					<td><label>Stocks: </label></td>
-					<td><input type="number" id="productStock" name="productStock" min="0"></td>
+					<td><input type="number" class="form-control" id="productStock" name="productStock" min="0"></td>
 				</tr>
 				<tr>
 					<td><label>Price: </label></td>
-					<td><input type="number" id="productPrice" name="productStock" min="0.01"></td>
+					<td><input type="number" class="form-control" id="productPrice" name="productStock" min="0.01"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" id="addProduct" name="" min="1" value="Add" required></td>
+					<td colspan="2" align="right"><input type="submit" class="btn btn-primary" id="addProduct" name="" min="1" value="Add" required></td>
 				</tr>
 			</form>
+			<tr>
+				<td colspan="2"><h2>Product List</h2></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="border-radius: 10px; border-color: #000; border: 2px; border-style: dotted;"><p id="displayProdList"></p></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button class="btn btn-primary" id="calculateTotalValue">Calculate for total value for each product</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><h2>Total Product Value</h2></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="border-radius: 10px; border-color: #000; border: 2px; border-style: dotted;"><p id="displayPerProduct"></p></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="border-radius: 10px; border-color: #000; border: 2px; border-style: dotted;"><p id="displayTotalValue"></p></td>
+			</tr>
 		</table>
-		<h2>Product List</h2>
-		<p id="displayProdList"></p>
-		<button id="calculateTotalValue">Calculate for total value for each product</button>
-		<h2>Total Product Value</h2>
-		<p id="displayPerProduct"></p>
-		<p id="displayTotalValue"></p>
+		
 
 	</div>
 
-	<script type="text/javascript">
-		//start of Part Two
-		var productArr = [];
-		var totalValuePerProd = [];
+	<script type="text/javascript" src="activity2.js">
 		
-		document.getElementById("addProduct").onclick = function(event) {
-			var prodName = document.getElementById("productName");
-			var prodStock = document.getElementById("productStock");
-			var prodPrice = document.getElementById("productPrice");
-
-			if(prodName.value == "") {
-				alert("Please enter Name field.");
-				return false;
-			} 
-			if(prodStock.value == "") {
-				alert("Please enter Stocks field.");
-				return false;
-			} 
-			if(prodPrice.value ==  "") {
-				alert("Please enter Price field.");
-				return false;
-			}
-
-			if(productArr.length != 0) {
-				if(!checkProductOnStock(productArr, prodName.value)) {
-					alert( prodName.value + " is already exists in the inventory.");
-					return false;
-				}
-			}
-
-			var product = {
-				"name" : prodName.value,
-				"stocks" : prodStock.value,
-				"price" : prodPrice.value
-			};
-
-			productArr.push(product);
-
-			appendProductlist(productArr);
-			prodName.value = "";
-			prodStock.value = "";
-			prodPrice.value = "";
-
-			event.preventDefault();
-		}
-
-		document.getElementById("calculateTotalValue").onclick = function() {
-			if(!productArr.length > 0) {
-				alert("Please enter product value.");
-				return false;
-			} 
-
-			totalValuePerProd = calculatePerProduct(productArr);
-			appendTotalPerProduct(totalValuePerProd);
-			appendTotalPriceValue(getTotalValue(totalValuePerProd));
-
-		}
-
-		function checkProductOnStock(product, prodName) {
-			for(var i in product) {
-				if(product[i].name == prodName) {
-					return false;
-				}
-			}
-			return true;
-		}
-
-		function appendTotalPerProduct(productArray) {
-			var displayPerProduct = document.getElementById("displayPerProduct");
-
-			displayPerProduct.innerHTML = "";
-			for(var i in productArray) {
-				displayPerProduct.innerHTML += productArray[i].productName + " will have a total value of " + productArray[i].totalPrice + "<br>";
-			}
-		}
-
-		function appendTotalPriceValue(totalPrice) {
-			var displayTotalValuePrice = document.getElementById("displayTotalValue");
-			displayTotalValuePrice.innerHTML = "Total Value: " + totalPrice;
-		}
-
-		function appendProductlist(productArr) {
-			var productList = document.getElementById("displayProdList");
-
-			productList.innerHTML = "";
-			for(var index in productArr) {
-				productList.innerHTML  += 	Object.keys(productArr[index])[0] + " : " + productArr[index].name + ", " +
-											Object.keys(productArr[index])[1] + " : " + productArr[index].stocks + ", " +
-											Object.keys(productArr[index])[2] + " : " + productArr[index].price + "<br>";
-			}
-		}
-
-		function calculatePerProduct(productArr) {
-			var totalPerProdArr = [];
-			for(var index in productArr) {
-				totalPerProdArr.push(getTotalPricePerProd(productArr[index]));
-			}
-			return totalPerProdArr;
-		}
-
-		function getTotalPricePerProd(product) {
-			var productTotalPrice = {
-				"productName" : product.name,
-				"totalPrice"  : product.stocks * product.price
-			}
-			return productTotalPrice;
-		}
-
-
-		function calcSumOfProductPrices(quantity, price) {
-			return quantity * price;
-		}
-
-		function getTotalValue(perProdTotalPrices) {
-			var totalValue = 0;
-			for(var index in perProdTotalPrices) {
-				totalValue += perProdTotalPrices[index].totalPrice;
-			}
-			return totalValue;
-		}
-
-		function displayTotalPricesPerProduct(product) {
-
-		}
-
-
-		// Starts of Part One
-		var personArr = [];
-
-		document.getElementById("submit").onclick = function(event) {
-			var name = document.getElementById("name").value;
-			var age = document.getElementById("age").value;
-
-			if(!validateValue("Name", name)) {
-				return;
-			}
-
-			if(!validateValue("Age", age)) {
-				return;
-			}
-
-			var person = {
-				"name" : name,
-				"age" : age
-			};
-
-			personArr.push(person);
-			
-			displayNameAndAge(personArr);
-			event.preventDefault();
-		}
-		
-		function validateValue(field, value) {
-			if(value == "") {
-				alert("Please input valid value on " + field + " field.");
-				return false;
-			}
-			return true;
-		}
-
-		function displayNameAndAge(person) {
-			console.log(person);
-			var displayPerson = document.getElementById("result");
-			var displayReadable = document.getElementById("readable");
-
-			displayPerson.innerHTML = JSON.stringify(person);
-			displayReadable.innerHTML = "";
-			for(var p in person) {
-				displayReadable.innerHTML += Object.keys(person[p])[0]+ " : " + person[p].name + ", " 
-											+ Object.keys(person[p])[1] + " : " + person[p].age + "<br>";
-			}
-
-		}
 	</script>
 
 </body>
