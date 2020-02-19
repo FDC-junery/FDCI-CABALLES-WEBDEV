@@ -54,7 +54,7 @@ document.getElementById("calculateTotalValue").onclick = function() {
 
 function checkProductOnStock(product, prodName) {
 	for(var i in product) {
-		if(product[i].name == prodName) {
+		if(product[i].name.toUpperCase() == prodName.toUpperCase()) {
 			return false;
 		}
 	}
@@ -153,7 +153,6 @@ document.getElementById("submit").onclick = function(event) {
 }
 
 function displayNameAndAge(person) {
-	console.log(person);
 	var displayPerson = document.getElementById("result");
 	var displayReadable = document.getElementById("readable");
 
@@ -190,7 +189,6 @@ function priceValidation(name, value) {
 function numberValidation(name, value) {
 	var val = 0;
 	var result = true;
-	console.log(value);
 	if(value == "") {
 		alert("Please input value on " + name + " field.");
 		result = false;
