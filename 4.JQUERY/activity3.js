@@ -166,6 +166,10 @@ function displayNameAndAge(person) {
 }
 
 function stringValidation(name, value) {
+	if(value.trim() == "") {
+		alert("Please input a text value on " + name + " field.");
+		return false;
+	}
 	if(value == "") {
 		alert("Please input a text value on " + name + " field.");
 		return false;
