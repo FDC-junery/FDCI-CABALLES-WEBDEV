@@ -6,8 +6,12 @@ document.getElementById("addProduct").onclick = function(event) {
 	var prodName = document.getElementById("productName");
 	var prodStock = document.getElementById("productStock");
 	var prodPrice = document.getElementById("productPrice");
+	var prodStr = prodName.value;
+	console.log("Without Trim: " + prodStr);
+	prodStr = prodStr.replace(/\s+/g, " ");
+	console.log("With Trim: " + prodStr);
 
-	if(!stringValidation("Name", prodName.value)) {
+	if(!stringValidation("Name", prodStr)) {
 		return false;
 	}
 	if(!numberValidation("Stock", prodStock.value)) {
@@ -18,14 +22,15 @@ document.getElementById("addProduct").onclick = function(event) {
 	}
 
 	if(productArr.length != 0) {
-		if(!checkProductOnStock(productArr, prodName.value)) {
+		console.log("Check");
+		if(!checkProductOnStock(productArr, prodStr)) {
 			alert( prodName.value + " is already exists in the inventory.");
 			return false;
 		}
 	}
 
 	var product = {
-		"name" : prodName.value,
+		"name" : prodStr,
 		"stocks" : prodStock.value,
 		"price" : prodPrice.value
 	};
@@ -131,6 +136,7 @@ var personArr = [];
 
 document.getElementById("submit").onclick = function(event) {
 	var name = document.getElementById("name").value;
+	name = name.replace(/\s+/g, " ");
 	var age = document.getElementById("age").value;
 
 	if(!stringValidation("Name", name)) {
