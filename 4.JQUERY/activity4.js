@@ -139,19 +139,18 @@ function checkSelectedHobbies() {
 	var checkedCount = 0;
 	var retVal = true;
 
+	for(var hobbies in selectedHobbies) {
+		if(selectedHobbies[hobbies].checked) {
+			console.log(selectedHobbies[hobbies].value);
+			checkedCount++;
+		}
+	}
+	
 	if(checkedCount < 3) {
 		warning.style.display = "block";
 		retVal = false;
 	}
-
-	if(retVal) {
-		for(var hobbies in selectedHobbies) {
-			if(selectedHobbies[hobbies].checked) {
-				console.log(selectedHobbies[hobbies].value);
-				checkedCount++;
-			}
-		}
-	}
+	
 	return retVal;
 }
 
