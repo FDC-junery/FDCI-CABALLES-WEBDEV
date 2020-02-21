@@ -12,79 +12,88 @@
 <body>
 
 	<div class="container">
-		<div col-sm-12>
-			<h2>Profile</h2>
-		</div>
-		<div col-sm-12>
-			<table class="table">
-				<form>
-					<tr>
-						<td><label>What's your name?</label></td>
-					</tr>
-					<tr>
-						<td><input type="text" class="form-control" id="name"/></td>
-					</tr>
-					<tr>
-						<td><label>Gender</label></td>
-					</tr>
-					<tr>
-						<td>
-							<select class="form-control">
-								<option value="Female">Female</option>
-								<option value="Male">Male</option>
-								<option value="Others">Others</option>
-							</select>
-						</td>
-					</tr>
+		<div class="container" id="inputProfile">
+			<div col-sm-12>
+				<h2>Profile</h2>
+				<div class="alert alert-danger" role="alert" id="warning">
+				  	Please select at least 3 hobbies
+				</div>
+			</div>
+			<div col-sm-12>
+				<table class="table">
+					<form>
+						<tr>
+							<td><label>What's your name?</label></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" id="name"/></td>
+						</tr>
+						<tr>
+							<td><label>Gender</label></td>
+						</tr>
+						<tr>
+							<td>
+								<select class="form-control" id="gender">
+									<option value="Female">Female</option>
+									<option value="Male">Male</option>
+									<option value="Others">Others</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<td><label>Hobbies</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Singing"><label>Singing</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Dancing"><label>Dancing</label></td> 
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Traveling"><label>Traveling</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Reading"><label>Reading</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Programming"><label>Programming</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Daydreaming"><label>Daydreaming</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Sleeping"><label>Sleeping</label></td>
-					</tr>
-	
-					<tr>
-						<td><button id="AddHobby" class="btn btn-info">Add hobby</button>
-					</tr>
-					<tr>
-						<td>
-							<label>Tell me a little about yourself</label>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<textarea class="form-control" id="selfDesc"></textarea> <br>
-							<p id="counter"></p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="submit" name="submit" class="btn btn-primary">
-						</td>
-					</tr>
-				</form>
-			</table>
+						<tr>
+							<td><label>Hobbies</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Singing"><label>Singing</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Dancing"><label>Dancing</label></td> 
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Traveling"><label>Traveling</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Reading"><label>Reading</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Programming"><label>Programming</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Daydreaming"><label>Daydreaming</label></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Sleeping"><label>Sleeping</label></td>
+						</tr>
+		
+						<tr>
+							<td><button id="AddHobby" class="btn btn-info">Add hobby</button>
+						</tr>
+						<tr>
+							<td>
+								<label>Tell me a little about yourself</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<textarea class="form-control" id="selfDesc"></textarea> <br>
+								<p id="counter"></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" id="submitProfile" name="submit" class="btn btn-primary">
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+		<div class="container" id="userProfile">
+		
 		</div>
 	</div>
+	
 <script type="text/javascript" src="activity4.js"></script>
 </body>
 </html>

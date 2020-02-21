@@ -2,6 +2,34 @@ var addHobbyBtn = document.querySelector("#AddHobby");
 addHobbyBtn.addEventListener("click", addHobby);
 var parentTr = addHobbyBtn.parentNode.parentNode;
 
+var descTextArea = document.getElementById("selfDesc");
+var counter = document.getElementById("counter");
+var userProfile = document.getElementById("userProfile");
+userProfile.style.display = "none";
+
+var warning = document.getElementById("warning");
+warning.style.display = "none";
+
+document.getElementById("selfDesc").addEventListener("input", function(e) {
+	var txtTemp = descTextArea.value;
+	if(txtTemp.length == 21) {
+		descTextArea.value = txtTemp.substring(0, 20);
+	}
+	txtTemp = descTextArea.value
+	var txtCnt = txtTemp;
+	var remaining = txtCnt.length;
+	var finalDesc = "";
+
+	counter.innerHTML = remaining+"/20";
+});
+
+
+var numOfWords = 0;
+
+if(descTextArea.value == "") {
+	counter.innerHTML = numOfWords+"/20";
+}
+
 function addHobby(e) {
 	var hobbies = document.querySelectorAll("input[class='hobby']");
 	var lastHobby = hobbies[hobbies.length-1].parentNode.parentNode;
@@ -71,3 +99,75 @@ function appendNewHobby(value, e) {
 	td.appendChild(newHobCb);
 	newHobCb.insertAdjacentElement("afterend", newHobLabel);
 }
+
+document.getElementById("submitProfile").addEventListener("click", submitNewProfile);
+
+function submitNewProfile(e) {
+	var name = document.getElementById("name").value;
+	var gender = document.getElementById("gender").value;
+	var message = "";
+	var hobbies = "";
+	var hobs = "";
+	e.preventDefault();
+
+	if(!checkSelectedHobbies()) {
+		return false;
+	}
+	hobbies = getHobbies();
+	for(var i in hobbies) {
+		hobs += hobbies[i]
+		if(i != hobbies.length-1) {
+			hobs += ", ";
+		}
+		
+	}
+	console.log(hobs);
+	message += "Hi " +name+"<br>";
+	message += "Your gender is " +gender+"<br>";
+	message += "Your hobbies are " +hobs+"<br>";
+	message += "Here's a little about your self:  " +descTextArea.value+"<br>";
+
+	document.getElementById("inputProfile").style.display = "none";
+	userProfile.style.display = "block";
+	userProfile.innerHTML = message;
+
+	
+}
+
+function checkSelectedHobbies() {
+	var selectedHobbies = document.querySelectorAll("input[class='hobby']");
+	var checkedCount = 0;
+	var retVal = true;
+
+	if(checkedCount < 3) {
+		warning.style.display = "block";
+		retVal = false;
+	}
+
+	if(retVal) {
+		for(var hobbies in selectedHobbies) {
+			if(selectedHobbies[hobbies].checked) {
+				console.log(selectedHobbies[hobbies].value);
+				checkedCount++;
+			}
+		}
+	}
+	return retVal;
+}
+
+function getHobbies() {
+	var selectedHobbies = document.querySelectorAll("input[class='hobby']");
+	var catchHobbies = [];
+	for(var hobbies in selectedHobbies) {
+		if(selectedHobbies[hobbies].checked) {
+			console.log(selectedHobbies[hobbies].value);
+			catchHobbies[hobbies] = selectedHobbies[hobbies].value;
+		}
+	}
+	return catchHobbies;
+}
+
+
+
+
+
