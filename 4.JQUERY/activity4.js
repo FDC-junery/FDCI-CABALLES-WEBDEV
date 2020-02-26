@@ -5,12 +5,16 @@ var parentTr = addHobbyBtn.parentNode.parentNode;
 var descTextArea = document.getElementById("selfDesc");
 var counter = document.getElementById("counter");
 var userProfile = document.getElementById("userProfile");
+
+document.getElementById("name").setAttribute("placeholder", "Enter name here...");
+
 userProfile.style.display = "none";
 
 var warning = document.getElementById("warning");
 warning.style.display = "none";
 
-document.getElementById("selfDesc").addEventListener("input", function(e) {
+var seldDescTxtArea = document.getElementById("selfDesc");
+seldDescTxtArea.addEventListener("input", function(e) {
 	var txtTemp = descTextArea.value;
 	if(txtTemp.length == 21) {
 		descTextArea.value = txtTemp.substring(0, 20);
@@ -22,7 +26,6 @@ document.getElementById("selfDesc").addEventListener("input", function(e) {
 
 	counter.innerHTML = remaining+"/20";
 });
-
 
 var numOfWords = 0;
 
@@ -62,21 +65,55 @@ function saveNewHobby() {
 	var newHobbyBtn = document.getElementById("saveNewHobby");
 	var newHobbyTb = document.getElementById("newHobby");
 	var tempVal = newHobbyTb.value;
+	tempVal = tempVal.toLowerCase();
+	tempVal = tempVal.charAt(0).toUpperCase() + tempVal.slice(1);
 	
 	if(tempVal == "") {
 		alert("Please enter value on New Hobby field.");
 		return false;
 	}
+	if(!validateNewHobby(hobbies, tempVal)) {
+		alert("This hobby -> " + tempVal + " is already existed.");
+		return false;
+	}
+
 	newHobbyBtn.remove();
 	newHobbyTb.remove();
 	parentTr.style.display = "";
 	addHobbyBtn.style.display = "block";
 
 	var newLastTr = hobbies[hobbies.length-1].parentNode.parentNode;
-	console.log(newLastTr);
-
-	appendNewHobby(tempVal);
+	console.log(lastHobby);
+	appendNewHobby(formatHobbyValue(tempVal));
 } 
+
+function formatHobbyValue(value) {
+	var temp = value;
+	temp = temp.toLowerCase();
+	console.log("Temp 1" + temp);
+	temp = temp.charAt(0).toUpperCase() + temp.slice(1);
+	console.log("Temp 2" + temp);
+	value = temp;
+
+	return value;
+}
+
+function validateNewHobby(hobbies, text) {
+	console.log(hobbies.length);
+	var flag = true;
+	var temp = "";
+	for(var i in hobbies) {
+		temp = hobbies[i].value;
+		if(text.trim().toUpperCase() == temp.trim().toUpperCase()) {
+			flag = false;
+		}
+		if(i == (hobbies.length-1)) {
+			break;
+		}
+	}
+
+	return flag;
+}
 
 function appendNewHobby(value, e) {
 	var hobbies = document.querySelectorAll("input[class='hobby']");
@@ -105,14 +142,29 @@ document.getElementById("submitProfile").addEventListener("click", submitNewProf
 function submitNewProfile(e) {
 	var name = document.getElementById("name").value;
 	var gender = document.getElementById("gender").value;
+	var description = document.getElementById("selfDesc").value;
 	var message = "";
 	var hobbies = "";
 	var hobs = "";
 	e.preventDefault();
 
+
+	if(isEmpty(name)) {
+		warning.style.display = "block";
+		warning.textContent = "Please enter your name";
+		return false;
+	}
+
 	if(!checkSelectedHobbies()) {
 		return false;
 	}
+
+	if(isEmpty(description)) {
+		warning.style.display = "block";
+		warning.textContent = "Please enter self description.";
+		return false;
+	}
+
 	hobbies = getHobbies();
 	for(var i in hobbies) {
 		hobs += hobbies[i]
@@ -126,12 +178,11 @@ function submitNewProfile(e) {
 	message += "Your gender is " +gender+"<br>";
 	message += "Your hobbies are " +hobs+"<br>";
 	message += "Here's a little about your self:  " +descTextArea.value+"<br>";
+	message += "<button id='goOver' onclick='goOver()' class='btn btn-primary'>Go over</button>";
 
 	document.getElementById("inputProfile").style.display = "none";
 	userProfile.style.display = "block";
-	userProfile.innerHTML = message;
-
-	
+	userProfile.innerHTML = message;	
 }
 
 function checkSelectedHobbies() {
@@ -141,17 +192,35 @@ function checkSelectedHobbies() {
 
 	for(var hobbies in selectedHobbies) {
 		if(selectedHobbies[hobbies].checked) {
-			console.log(selectedHobbies[hobbies].value);
 			checkedCount++;
 		}
 	}
-	
+
 	if(checkedCount < 3) {
 		warning.style.display = "block";
+		warning.textContent = "Please select at least 3 hobbies";
 		retVal = false;
 	}
 	
 	return retVal;
+}
+
+function isEmpty(text) {
+	var desc = text;
+	desc = desc.trim();
+
+	switch(desc) {
+		case "":
+			return true;
+		case 0:
+			return true;
+		case " ": 
+			return true;
+		case null:
+			return true;
+		default:
+			return false;
+	} 
 }
 
 function getHobbies() {
@@ -164,6 +233,10 @@ function getHobbies() {
 		}
 	}
 	return catchHobbies;
+}
+
+function goOver() {
+	window.location = "activity4.html";
 }
 
 

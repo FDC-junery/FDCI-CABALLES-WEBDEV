@@ -3,11 +3,6 @@
 <head>
 	<title>Activity 4</title>
 	<link rel="stylesheet" type="text/css" href="../3.CSS/bootstrap/css/bootstrap.min.css">
-	<style>
-		.hobby {
-			margin-right: 100px;
-		}
-	</style>
 </head>
 <body>
 
@@ -16,14 +11,13 @@
 			<div col-sm-12>
 				<h2>Profile</h2>
 				<div class="alert alert-danger" role="alert" id="warning">
-				  	Please select at least 3 hobbies
 				</div>
 			</div>
 			<div col-sm-12>
 				<table class="table">
 					<form>
 						<tr>
-							<td><label>What's your name?</label></td>
+							<td style="background-color: lightblue;"><label>What's your name?</label></td>
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control" id="name"/></td>
@@ -42,7 +36,7 @@
 						</tr>
 
 						<tr>
-							<td><label>Hobbies</label></td>
+							<td style="background-color: lightblue;"><label>Hobbies</label></td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" class="hobby" style="margin-right: 5px;" value="Singing"><label>Singing</label></td>
@@ -70,7 +64,7 @@
 							<td><button id="AddHobby" class="btn btn-info">Add hobby</button>
 						</tr>
 						<tr>
-							<td>
+							<td style="background-color: lightblue;">
 								<label>Tell me a little about yourself</label>
 							</td>
 						</tr>
@@ -89,9 +83,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="container" id="userProfile">
-		
-		</div>
+		<div class="alert alert-success" id="userProfile"></div>
 	</div>
 	
 <script type="text/javascript" src="activity4.js"></script>
