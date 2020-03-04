@@ -57,26 +57,33 @@ $(function() {
 		var displayAns = "";
 		var id = e[0].id;
 
-		if (id.includes("1")) {
-			displayAns = ans[0];
-		} else if (id.includes("2")) {
-			displayAns = ans[1];
-		} else {
-			displayAns = ans[2];
+		if($("p").length > 0) {
+			$("p").each(function(i) {
+				if($("p")[i] == e.next("p")[0]) 
+					return true;
+				
+				$("p").hide(500);
+			});
 		}
+
+		if (id.includes("1")) 
+			displayAns = ans[0];
+		else if (id.includes("2")) 
+			displayAns = ans[1];
+		else 
+			displayAns = ans[2];
+		
 
 		if(e.next("p")[0] == null) {
 				e.after("<p style='display: none;'>"+displayAns+"</p>");
 				e.next("p").show(300);
 		} else {
-			if(e.next("p").is(":visible")) {
+			if(e.next("p").is(":visible")) 
 				e.next("p").hide(500);
-			} else {
+			else 
 				e.next("p").show(500);
-			}
+			
 		}
-
-
-		console.log(e);
+		
 	}
 });
