@@ -12,7 +12,6 @@ $(function() {
 
 	$("#start_part3").click(function() {
 		var squareStyle = $("#square_part3").get(0).style;
-		console.log(squareStyle);
 		var newStyle = {
 			width: (parseInt(squareStyle.width.replace("px", ""))+100)+"px",
 			height: (parseInt(squareStyle.height.replace("px", ""))+100)+"px",
@@ -75,7 +74,7 @@ $(function() {
 		
 
 		if(e.next("p")[0] == null) {
-				e.after("<p style='display: none;'>"+displayAns+"</p>");
+				e.after("<p style='display: none; color: green;'>"+displayAns+"</p>");
 				e.next("p").show(300);
 		} else {
 			if(e.next("p").is(":visible")) 
