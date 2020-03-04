@@ -74,7 +74,7 @@ $(function() {
 		
 
 		if(e.next("p")[0] == null) {
-				e.after("<p style='display: none; color: green;'>"+displayAns+"</p>");
+				e.after("<span></span><p style='display: none; color: green;'>"+displayAns+"</p>");
 				e.next("p").show(300);
 		} else {
 			if(e.next("p").is(":visible")) 

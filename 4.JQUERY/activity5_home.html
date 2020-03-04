@@ -5,13 +5,14 @@
 	<link rel="stylesheet" type="text/css" href="../3.CSS/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<h2>Activity 5</h2>
+
 <div class="panel panel-default" style="width: 200px;">
+	<h2>Activity 5</h2>
 	<div class="panel-body">
-		<ul style="list-style: none;">
-			<li><a id="partone">Part 1</a></li>
-			<li><a id="parttwo">Part 2</a></li>
-			<li><a id="partthree">Part 3</a></li>
+		<ul class="list-group">
+			<a id="partone"><li class="list-group-item">Part 1</li></a>
+			<a id="parttwo"><li class="list-group-item">Part 2</li></a>
+			<a id="partthree"><li class="list-group-item">Part 3</li></a>
 		</ul>
 	</div>
 </div>
@@ -31,6 +32,14 @@
 		$("#partthree").click(function() {
 			$("#view").attr("src", "activity5_3.html");
 		});
+		$("a > li").hover(
+			function(){
+				$(this).css({backgroundColor: "#D3D3D3"});
+			}, 
+			function() {
+				$(this).css({backgroundColor: "#fff"});
+			}
+		);
 	});
 </script>
 </body>
