@@ -43,46 +43,20 @@ $(function() {
 		sqr.animate({marginLeft: "300px"}, 500);
 		sqr.animate({width: "550px", height: "550px",borderWidth: "20px", opacity: "0.50"}, 500);
 	});
-
-
-
 	//Activity 5 - Part 1 : JQuery functions starts here
-	$("a").click(function(e) {
-		hideShow($(this));
+
+	$("a").click(function() {
+		var e = $(this);
+
+		e.next("p").toggle(300);
+
+		$("a").each(function(){
+			if($(this)[0] != e[0]) {
+				if($(this).next("p").is(":visible")) {
+					$(this).next("p").toggle(300);
+				}
+			} 
+		});
 	});
-
-	function hideShow(e) {
-		var ans = ["This is the first answer", "This is the second answer", "This is the third answer"];
-		var displayAns = "";
-		var id = e[0].id;
-
-		if($("p").length > 0) {
-			$("p").each(function(i) {
-				if($("p")[i] == e.next("p")[0]) 
-					return true;
-				
-				$("p").hide(500);
-			});
-		}
-
-		if (id.includes("1")) 
-			displayAns = ans[0];
-		else if (id.includes("2")) 
-			displayAns = ans[1];
-		else 
-			displayAns = ans[2];
-		
-
-		if(e.next("p")[0] == null) {
-				e.after("<span></span><p style='display: none; color: green;'>"+displayAns+"</p>");
-				e.next("p").show(300);
-		} else {
-			if(e.next("p").is(":visible")) 
-				e.next("p").hide(500);
-			else 
-				e.next("p").show(500);
-			
-		}
-		
-	}
+	
 });
